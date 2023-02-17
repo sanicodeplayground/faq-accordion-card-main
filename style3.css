@@ -1,0 +1,200 @@
+:root {
+  /*colors*/
+  --primary-text-very-dark-desaturated-blue: hsl(238, 29%, 16%);
+  --primary-text-soft-red: hsl(14, 88%, 65%);
+  --bg-gradient-soft-violet: hsl(273, 75%, 66%);
+  --bg-gradient-soft-blue: hsl(240, 73%, 65%);
+  --neutral-text-very-dark-grayish-blue: hsl(237, 12%, 33%);
+  --neutral-dark-grayish-blue: hsl(240, 6%, 50%);
+  --dividers-light-grayish-blue: hsl(240, 5%, 91%);
+  --bg-card: hsl(0, 0%, 100%);
+
+  /*Fonts*/
+  --font-family: "Kumbh Sans", sans-serif;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-size: 16px;
+  font-family: var(--font-family);
+  min-height: 100vh;
+
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    var(--bg-gradient-soft-violet),
+    var(--bg-gradient-soft-blue)
+  );
+}
+main {
+  display: block;
+}
+image {
+  width: 100%;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-card);
+  padding: 1rem 1rem 3rem 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+  text-align: left;
+  margin-top: 6rem;
+  margin-bottom: 2rem;
+}
+.card-illustration {
+  position: relative;
+  padding: 2rem 1rem;
+  margin-top: -134px;
+  margin-bottom: 1rem;
+  background: url(images/bg-pattern-mobile.svg) no-repeat 0.5rem 8rem;
+}
+
+.desktop-illustration-woman,
+.shadow-desktop,
+.box-desktop {
+  display: none;
+}
+.mobile-illustration-woman,
+.shadow-mobile {
+  display: block;
+  width: 230px;
+}
+.shadow-mobile {
+  z-index: -1;
+  top: -8;
+}
+.accordion-container {
+  display: flex;
+  flex-direction: column;
+}
+.accordion-title {
+  color: var(--primary-text-very-dark-desaturated-blue);
+  text-transform: uppercase;
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+details > summary {
+  list-style: none;
+}
+
+.accordion-item {
+  border-bottom: 2px solid var(--dividers-light-grayish-blue);
+  font-family: inherit;
+  font-weight: 400;
+
+  overflow: hidden;
+}
+summary {
+  padding: 1rem 0 1rem 0;
+  display: flex;
+  position: relative;
+  cursor: pointer;
+}
+summary:before {
+  content: "";
+  position: absolute;
+  transform: rotate(0);
+  transform-origin: 0.2rem 50%;
+  transition: 0.25s transform ease;
+}
+.accordion-question {
+  text-align: left;
+  border: none;
+  background-color: hsl(0, 0%, 100%);
+  font-family: var(--font-family);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+  justify-content: space-between;
+  color: var(--neutral-dark-grayish-blue);
+}
+.accordion-question:hover {
+  color: var(--primary-text-soft-red);
+}
+.accordion-question:active {
+  color: var(--primary-text-very-dark-desaturated-blue);
+  font-weight: 700;
+}
+
+.accordion-answer {
+  color: var(--neutral-dark-grayish-blue);
+  padding-right: 2rem;
+  line-height: 1.5;
+  font-size: 0.8rem;
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive: large screens */
+@media screen and (min-width: 600px) {
+  body {
+    background: linear-gradient(
+      var(--bg-gradient-soft-violet),
+      var(--bg-gradient-soft-blue)
+    );
+  }
+  .card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 1rem;
+    padding: 2rem 0;
+    margin: 6rem 10rem;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    height: auto;
+    max-width: 85%;
+    overflow: hidden;
+  }
+
+  .card-illustration {
+    background-image: url("images/bg-pattern-desktop.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top right;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+    width: 270px;
+    height: 500px;
+  }
+
+  .mobile-illustration-woman,
+  .shadow-mobile {
+    display: none;
+  }
+  .desktop-illustration-woman,
+  .shadow-desktop {
+    display: block;
+    width: 90%;
+    height: 163px;
+    position: absolute;
+    left: 0;
+    top: 13rem;
+  }
+  .box-desktop {
+    display: block;
+    height: 11rem;
+    left: 4rem;
+    top: 20rem;
+    position: absolute;
+  }
+
+  .accordion-container {
+    width: 50%;
+    padding: 1rem 2rem;
+    margin-top: 5rem;
+  }
+  .accordion-title {
+    text-align: left;
+  }
+}
